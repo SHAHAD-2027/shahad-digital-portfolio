@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COFF KAF | Specialty Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Cairo,sans-serif;background:#f8f3ed;color:#372027}
+button{cursor:pointer;font-family:inherit;border:0}.top{background:#351620;color:#fff;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.brand{font:700 29px 'Playfair Display';color:#e2bd8d;letter-spacing:4px}.nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.nav a,.nav button{background:none;color:#f4e9e2;text-decoration:none;font-size:13px}.nav a:hover,.nav button:hover{color:#dfb982}
+.hero{min-height:510px;background:linear-gradient(90deg,rgba(40,13,24,.92),rgba(40,13,24,.22)),url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1800&q=85') center/cover;display:flex;align-items:center;padding:60px 10%;color:white}
+.hero-content{max-width:570px}.eyebrow{color:#dfb982;letter-spacing:4px;font-size:12px}.hero h1{font:600 clamp(45px,7vw,76px)/1.12 'Playfair Display';margin:20px 0}.hero h1 span{color:#dfb982}.hero p{line-height:2;color:#eee0d8;margin-bottom:25px}
+.gold{background:#d7b384;color:#351620;padding:13px 25px;font-weight:700;border-radius:3px}.section{max-width:1200px;margin:auto;padding:70px 22px}.heading{text-align:center;margin-bottom:32px}.heading small{color:#a16c57;letter-spacing:4px}.heading h2{font:600 38px 'Playfair Display';color:#482331;margin:10px}.heading p{color:#8d7771;font-size:14px}
+.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:32px}.filters button{padding:9px 20px;border:1px solid #d7c7ba;border-radius:30px;background:transparent;color:#56303b}.filters button.active,.filters button:hover{background:#4a202e;color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:22px}.product{background:white;border:1px solid #eee5dc}.product img{width:100%;height:195px;object-fit:cover;display:block}.info{padding:18px}.info h3{font:600 21px 'Playfair Display';color:#4b2633}.info p{color:#927c74;font-size:13px;min-height:42px;margin:8px 0}.bottom{display:flex;justify-content:space-between;align-items:center;gap:8px}.price{color:#965d47;font-weight:700}.add{background:#4a202e;color:white;padding:9px 13px;font-size:12px}
+.cart{background:white;border:1px solid #eadfd4;padding:25px;max-width:850px;margin:25px auto}.cart h2{font:600 28px 'Playfair Display';color:#482331;margin-bottom:15px}.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #eee;padding:12px 0;color:#56303b;flex-wrap:wrap}.remove{background:#f2e6e2;color:#713a48;padding:6px 10px}.total{text-align:left;color:#482331;font-size:20px;font-weight:700;margin:20px 0}.footer{background:#351620;color:#e9d9d0;text-align:center;padding:38px 20px;line-height:2}.footer h2{font:600 27px 'Playfair Display';color:#dfb982;letter-spacing:4px}.footer a{color:#dfb982}
+@media(max-width:600px){.top{justify-content:center}.nav{justify-content:center}.hero{min-height:440px;padding:40px 24px}.section{padding:48px 17px}}
+</style></head><body>
+<header class="top"><div class="brand">COFF KAF.</div><nav class="nav"><a href="../index.html">PORTFOLIO</a><a href="#menu">OUR MENU</a><a href="#story">OUR STORY</a><a href="#bag">BAG (<span id="count">0</span>)</a></nav></header>
+<section class="hero"><div class="hero-content"><div class="eyebrow">SPECIALTY COFFEE • EST. 2026</div><h1>Discover the<br><span>Art of Coffee.</span></h1><p>More than coffee. It's a moment of pleasure.<br>اكتشف عالم القهوة المختصة والمحاصيل الفاخرة والحلويات اللذيذة.</p><button class="gold" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">EXPLORE OUR MENU</button></div></section>
+<section class="section" id="menu"><div class="heading"><small>CRAFTED WITH PASSION</small><h2>Our Signature Menu</h2><p>اختاري مشروبك المفضل واستمتعي بكل رشفة</p></div>
+<div class="filters"><button class="active" data-cat="all">All</button><button data-cat="hot">Hot Coffee</button><button data-cat="cold">Cold Coffee</button><button data-cat="beans">Coffee Beans</button><button data-cat="dessert">Desserts</button></div><div class="grid" id="products"></div></section>
+<section class="section" id="story"><div class="heading"><small>OUR PHILOSOPHY</small><h2>From Farm to Cup.</h2><p>محاصيل مختارة بعناية، وتحضير بحب، ولحظات تستحق التذوق.</p></div></section>
+<section class="section" id="bag"><div class="cart"><h2>Your Shopping Bag</h2><div id="items">Your bag is currently empty.</div><div class="total">Total: <span id="total">0</span> SAR</div><button class="gold" onclick="checkout()">CONTINUE TO ORDER</button></div></section>
+<footer class="footer"><h2>COFF KAF.</h2><p>Good Coffee. Beautiful Moments.</p><p>Specialty Coffee • Premium Beans • Sweet Moments</p><p>© 2026 COFF KAF. All Rights Reserved.</p><a href="../index.html">Back to Portfolio</a></footer>
+<script>
+const data=[
+['Classic Espresso','Rich, bold and beautifully balanced.',12,'hot','photo-1510707577719-ae7c14805e3a'],
+['Signature Cappuccino','Silky milk with a perfect espresso shot.',19,'hot','photo-1570968915860-54d5c301fa9f'],
+['Spanish Latte','Creamy sweetness with a coffee finish.',22,'hot','photo-1461023058943-07fcbe16d735'],
+['Iced Americano','Refreshing coffee with a bold character.',16,'cold','photo-1517701604599-bb29b565090c'],
+['Iced Latte','Smooth espresso and chilled milk.',20,'cold','photo-1461023058943-07fcbe16d735'],
+['Cold Brew','Slow brewed for a smooth rich taste.',23,'cold','photo-1517701604599-bb29b565090c'],
+['Ethiopia Beans','Floral aroma with fruity tasting notes.',55,'beans','photo-1559525839-b184a4d698c7'],
+['Colombia Beans','Balanced sweetness and smooth finish.',49,'beans','photo-1447933601403-0c6688de566e'],
+['Chocolate Cake','Rich chocolate in every bite.',20,'dessert','photo-1578985545062-69928b1d9587'],
+['Butter Croissant','Freshly baked and golden.',15,'dessert','photo-1555507036-ab1f4038808a'],
+['Cheesecake','Creamy cheesecake with a delicate crust.',22,'dessert','photo-1533134242443-d4fd215305ad']];
+let cart=[],category='all';
+function render(){const list=category==='all'?data:data.filter(x=>x[3]===category);document.getElementById('products').innerHTML=list.map(p=>`<article class="product"><img src="https://images.unsplash.com/${p[4]}?auto=format&fit=crop&w=700&q=80" alt="${p[0]}"><div class="info"><h3>${p[0]}</h3><p>${p[1]}</p><div class="bottom"><span class="price">${p[2]} SAR</span><button class="add" onclick="add('${p[0]}')">ADD TO BAG +</button></div></div></article>`).join('')}
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.cat;document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('active',x===b));render()}));
+function add(name){let p=data.find(x=>x[0]===name),i=cart.find(x=>x.name===name);if(i)i.qty++;else cart.push({name,price:p[2],qty:1});update()}
+function removeItem(name){cart=cart.filter(x=>x.name!==name);update()}
+function update(){document.getElementById('count').textContent=cart.reduce((s,x)=>s+x.qty,0);document.getElementById('items').innerHTML=cart.length?cart.map(x=>`<div class="cart-row"><span>${x.name} × ${x.qty}</span><span>${x.price*x.qty} SAR</span><button class="remove" onclick="removeItem('${x.name}')">Remove</button></div>`).join(''):'Your bag is currently empty.';document.getElementById('total').textContent=cart.reduce((s,x)=>s+x.price*x.qty,0)}
+function checkout(){if(!cart.length){alert('Your shopping bag is empty!');return}alert('Demo order ready! Total: '+cart.reduce((s,x)=>s+x.price*x.qty,0)+' SAR. This is a demonstration only; no real order was sent.')}
+render();
+</script></body></html>
